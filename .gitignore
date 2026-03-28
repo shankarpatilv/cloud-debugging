@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+*.egg-info/
+
+# Environment
+.env
+.env.local
+*.env
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+
+learn/
+# Logs
+*.log
+logs/
+
+convert_dataset.py
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.pid
+
+# Project specific
+service/db/*.db
+service/logs/*.log
+debug_tool/cache/
+examples/
+process_documentation/
+memories/

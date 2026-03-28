@@ -1,0 +1,99 @@
+# Version control
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+pip-log.txt
+pip-delete-this-directory.txt
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git
+.mypy_cache
+.pytest_cache
+.hypothesis
+
+# Virtual environments
+venv/
+env/
+ENV/
+venv.bak/
+env.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Documentation and examples (not needed in container)
+docs/
+examples/
+*.md
+README*
+
+# Development and testing
+test_*
+*_test.py
+pytest.ini
+.pytest_cache/
+
+# Deployment files (don't need these inside container)
+deployment/
+*.yml
+*.yaml
+Dockerfile*
+
+# Local development files
+.env.local
+.env.development
+memories/
+process_documentation/
+
+# Claude-specific
+.claude/
+CLAUDE.md
+
+# Logs (will be created inside container)
+logs/
+*.log
+
+# Data files (except the main dataset which we copy explicitly)
+*.xlsx
+*.csv
+!churn_data.csv
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Temporary files
+tmp/
+temp/
+*.tmp

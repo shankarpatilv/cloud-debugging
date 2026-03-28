@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  data-processing-service:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=development
+      - LOG_LEVEL=debug
+      - HOST=0.0.0.0
+      - PORT=8000
+    volumes:
+      # Mount logs directory for easier access during development
+      - ./logs:/app/logs
+      # Optional: Mount data directory if you want to update dataset without rebuilding
+      # - ../churn_data.csv:/app/data/churn_data.csv:ro
+    networks:
+      - debugging-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # Optional: Add a simple monitoring/logging service for development
+  logs-viewer:
+    image: busybox
+    volumes:
+      - ./logs:/logs:ro
+    command: tail -f /logs/app.log
+    depends_on:
+      - data-processing-service
+    networks:
+      - debugging-network
+    profiles:
+      - monitoring
+
+networks:
+  debugging-network:
+    driver: bridge
+
+volumes:
+  logs-data:
+    driver: local
