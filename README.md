@@ -448,8 +448,6 @@ For detailed examples and actual LLM outputs, see **[USAGE_EXAMPLES.md](./USAGE_
 - **Cons**: More API calls, slightly slower
 - **Rationale**: Accuracy is paramount for debugging
 
-ysis and debugging
-
 ### 3. Error Handling Philosophy
 
 #### Detailed Error Context
